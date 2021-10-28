@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Displays dir contents
+for line in *; do
+    echo "$line" | cut -d '-' -f2
+done

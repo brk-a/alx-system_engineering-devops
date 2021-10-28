@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Display 'Hi' if counter == 9
+counter=0
+while [ $counter -lt 10 ]; do
+    if [ $counter -eq 8 ]
+    then
+        echo -e "Best School\nHi"
+    else
+        echo "Best School"
+    fi
+    let counter=counter+1
+done
