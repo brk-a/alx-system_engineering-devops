@@ -1,0 +1,2 @@
+#Display listening ports: sockets & PIDs
+netstat -lp
