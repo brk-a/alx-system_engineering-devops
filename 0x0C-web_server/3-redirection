@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Make `/redirect_me` redirect to another site
-apt-get -y update
+apt-get -y update && apt-get -y upgrade
 apt-get -y install nginx
-mv /usr/share/nginx/html/index.html /usr/share/nginx/html/index.txt
-echo "301 Moved Permanently" > /usr/share/nginx/html/index.html
-new_string=".rules\n\t\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n"
-sed -i "s/.rules/$new_string/" /etc/nginx/sites-available/default
-service nginx restart
+new="localhost;\n\tlocation \/redirect_me{\n\t\treturn 301 http:\/\/www.google.com;}"
+sed -i "s/localhost;/$new/" /etc/nginx/sites-available/default
+sudo service nginx restart
